@@ -1,0 +1,14 @@
+<div class="task-record-itembox">
+    <div class="task-item-section">
+        <div class="task-record-item-image">
+            {{ task_icon }}
+        </div>
+    </div>
+    <div class="task-record-item-body">
+        <span class="task-title">{{ record.task.desc }}</span>
+        <span class="task-subtitle">{{ record.timestamp }}</span>
+    </div>
+    <div class="task-item-section">
+        <div class="task-record-item-user">{{ record.user.housemember.iconchar }}</div>
+    </div>
+</div>

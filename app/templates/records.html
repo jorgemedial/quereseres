@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Task Records{% endblock %}
+
+{% block content %}
+<!-- Add Task Record Section -->
+<div class="container add-task-section">
+    <div class="task-header">
+        <div class="task-header-icon">
+            &#x2795;
+        </div>
+        <div class="task-header-text">
+            Record Task
+        </div>
+    </div>
+</div>
+
+<!-- Task Record Item -->
+<div class="container task-record-container">
+    {% for record in task_records %}
+        {% include '_task_record_itembox.html' with task_icon="&#x2795" record=record %}
+    {% endfor %}
+</div>
+{% endblock %}
