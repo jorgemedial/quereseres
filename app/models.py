@@ -10,7 +10,7 @@ class Task(models.Model):
 
 class TaskCompletionRecord(models.Model):
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
-    timestamp = models.DateField(default=models.functions.Now())
+    timestamp = models.DateTimeField(default=models.functions.Now())
     user = models.ForeignKey(User, blank=False, on_delete=models.CASCADE)
 
     def __str__(self):

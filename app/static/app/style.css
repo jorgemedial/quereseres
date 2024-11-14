@@ -30,6 +30,13 @@
     padding: 10px;
     text-align: center;
     border-bottom: 1px solid azure;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-user-icon {
+    display: flex;
+    align-items: center;    
 }
 
 /* Add Task Record Section */

@@ -7,12 +7,16 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load static %}
-    <!-- Custom Stylesheet -->
     <link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}"> 
 </head>
 <body class="body-background">
     <header class="site-header">
         <h1>TaskTracker</h1>
+        <div class="header-user-icon">
+            <div class="task-record-item-user">
+                {{ user.housemember.iconchar }}
+            </div>
+        </div>
     </header>
     <main>
         {% block content %}

@@ -1,19 +1,23 @@
 {% extends 'base.html' %}
 
-
 {% block title %}Task Records{% endblock %}
 
 {% block content %}
 <!-- Add Task Record Section -->
 <div class="container add-task-section">
-    <div class="task-header">
-        <div class="task-header-icon">
-            &#x2795;
+    <form action="{% url 'task_record' %}" method="post">
+        <div class="task-header">
+            <div class="task-header-text">
+                {% csrf_token %}
+                {{ form }}
+            </div>
+            <button type="submit" class="task-header-icon"> &#x2795;</button>
         </div>
-        <div class="task-header-text">
-            Record Task
-        </div>
-    </div>
+    </form>
+</div>
+
+<div>
+    
 </div>
 
 <!-- Task Record Item -->
