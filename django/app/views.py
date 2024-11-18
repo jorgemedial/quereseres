@@ -8,8 +8,7 @@ from . import forms
 
 # Create your views here.
 
-    
-@login_required
+
 def task_record(request):
     if request.method == 'POST':
         form = forms.TaskRecordForm(request.POST)

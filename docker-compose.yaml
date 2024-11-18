@@ -1,0 +1,16 @@
+services:
+  django:
+    build: 
+      context: .
+      dockerfile: docker/Dockerfile.django
+    env_file: .env
+    ports:
+      - "8000:8000"
+
+  nginx:
+    build: nginx:stable-alpine3.20-perl
+    ports:
+      - "80:80"
+      - "443:443"
+
+  
