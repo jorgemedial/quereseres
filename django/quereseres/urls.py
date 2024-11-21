@@ -22,6 +22,6 @@ from app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.task_record, name='task_record'),
+    path('', views.render_task_record, name='task_record'),
     path('accounts/', include('django.contrib.auth.urls')),
 ]
