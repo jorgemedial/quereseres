@@ -5,9 +5,13 @@ from django.contrib.auth.decorators import login_required
 
 from rest_framework import permissions, viewsets
 
+
 from .models import *
 from . import forms
-from .serializers import TaskRecordsSerializers
+
+from django.http import JsonResponse
+
+from django.core import serializers
 
 # Create your views here.
 
@@ -26,9 +30,13 @@ def render_task_record(request):
     task_records = TaskCompletionRecord.objects.all().order_by("-timestamp")
     return render(request, 'records.html', {"form": form, 'task_records': task_records})
 
-class GroupViewSet(viewsets.ModelViewSet):
-    queryset = Group.objects.all().order_by('name')
-    serializer_class = TaskRecordsSerializers
+def serialize_task_records(request):
+    if request.method == 'GET':
+        task_records = TaskCompletionRecord.objects.all()
+        data = serializers.serialize('json', task_records)
+        return JsonResponse(data, content_type='application/json', safe=False)
+
+
 
 
  
