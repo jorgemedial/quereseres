@@ -3,3 +3,4 @@ keys.py
 *.pyc
 __pycache__
 .env
+.vscode

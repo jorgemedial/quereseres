@@ -17,10 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from app import views
-
+from app import views 
+from django.contrib.auth.views import LoginView
 
 urlpatterns = [
     path('', views.render_task_record, name='task_record'),
+    path("accounts/login/", LoginView.as_view(), name="login"),
     path('api/records', views.serialize_task_records, name='api_task_record'),
 ]

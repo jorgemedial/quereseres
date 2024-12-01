@@ -2,9 +2,7 @@ from datetime import datetime
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-
-from rest_framework import permissions, viewsets
-
+from django.contrib.auth.forms import AuthenticationForm
 
 from .models import *
 from . import forms
@@ -15,7 +13,7 @@ from django.core import serializers
 
 # Create your views here.
 
-
+@login_required
 def render_task_record(request):
     if request.method == 'POST':
         form = forms.TaskRecordForm(request.POST)
@@ -35,8 +33,7 @@ def serialize_task_records(request):
         task_records = TaskCompletionRecord.objects.all()
         data = serializers.serialize('json', task_records)
         return JsonResponse(data, content_type='application/json', safe=False)
-
-
+    
 
 
  
